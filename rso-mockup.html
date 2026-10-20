@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>twitchBot – Riot-Verknüpfung (Mockup)</title>
+<style>
+:root{--bg:#0f1115;--card:#171a21;--text:#e8eaf0;--muted:#8b93a7;--accent:#7c5cff;--ok:#2fbf71;--warn:#f0b43c;--danger:#d9534f;--border:#262b36}
+@media (prefers-color-scheme: light){:root{--bg:#f5f6fa;--card:#fff;--text:#14161c;--muted:#5d6577;--border:#e1e4ec}}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:grid;grid-template-columns:260px 1fr}
+aside{border-right:1px solid var(--border);padding:24px;background:var(--card)}
+aside h1{font-size:18px;margin:0 0 4px}
+aside .sub{color:var(--muted);font-size:13px;margin:0 0 20px}
+.step{display:flex;gap:10px;align-items:center;padding:10px;border-radius:10px;cursor:pointer;color:var(--muted);font:inherit;font-size:14px;border:0;background:none;width:100%;text-align:left}
+.step.active{background:var(--bg);color:var(--text)}
+.step .n{width:24px;height:24px;border-radius:50%;border:1px solid var(--border);display:grid;place-items:center;font-size:12px;flex:none}
+.step.active .n{background:var(--accent);border-color:var(--accent);color:#fff}
+main{padding:32px;display:flex;justify-content:center;align-items:flex-start}
+.screen{width:100%;max-width:520px;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px}
+.badge{display:inline-block;font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+h2{margin:0 0 8px;font-size:22px}
+p{line-height:1.55;color:var(--muted);margin:0 0 16px}
+.btn{font:inherit;border:0;border-radius:10px;padding:12px 18px;cursor:pointer;background:var(--accent);color:#fff;font-weight:600}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--border)}
+.btn.danger{background:var(--danger)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+.perm{padding:12px 0;border-top:1px solid var(--border)}
+.perm:first-of-type{border-top:0}
+.perm strong{display:block;font-size:14px;margin-bottom:2px}
+.perm span{font-size:13px;color:var(--muted)}
+.disclaimer{background:color-mix(in srgb,var(--warn) 14%,transparent);border:1px solid var(--warn);border-radius:10px;padding:12px 14px;font-size:13px;line-height:1.5;margin:16px 0}
+label.opt{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--text);cursor:pointer;margin:16px 0}
+label.opt input{margin-top:3px;width:16px;height:16px}
+.riot-sim{border:1px dashed var(--border);border-radius:12px;padding:28px 20px;text-align:center;margin-bottom:16px;color:var(--muted);font-size:14px}
+.riot-sim b{display:block;color:var(--text);font-size:15px;margin-bottom:6px}
+.pill{display:inline-block;font-size:12px;padding:3px 10px;border-radius:999px;background:color-mix(in srgb,var(--ok) 18%,transparent);color:var(--ok);margin-bottom:12px}
+.kv{display:flex;justify-content:space-between;padding:10px 0;border-top:1px solid var(--border);font-size:14px}
+.kv span:first-child{color:var(--muted)}
+.chat{background:#0b0d12;color:#e8eaf0;border-radius:12px;padding:14px 16px;font:13px/1.8 ui-monospace,Consolas,monospace;margin:12px 0}
+.chat .mute{color:#6b7385}
+.chat .bot{color:#9fd0ff}
+.note{font-size:12px;color:var(--muted);border-top:1px solid var(--border);padding-top:14px;margin-top:16px;line-height:1.5}
+.hidden{display:none}
+@media (max-width:760px){body{grid-template-columns:1fr}aside{border-right:0;border-bottom:1px solid var(--border)}}
+</style>
+</head>
+<body>
+
+<aside>
+  <h1>twitchBot</h1>
+  <p class="sub">Mockup: Riot-Verknüpfung (RSO)</p>
+  <button class="step active" data-go="1"><span class="n">1</span>Start</button>
+  <button class="step" data-go="2"><span class="n">2</span>Riot-Anmeldung</button>
+  <button class="step" data-go="3"><span class="n">3</span>Zustimmung</button>
+  <button class="step" data-go="4"><span class="n">4</span>Verbunden</button>
+  <button class="step" data-go="5"><span class="n">5</span>Im Chat</button>
+</aside>
+
+<main>
+
+  <!-- 1: Start -->
+  <section class="screen" data-screen="1">
+    <div class="badge">Schritt 1 von 5</div>
+    <h2>twitchBot mit deinem Riot-Account verbinden</h2>
+    <p>Mit der Verknüpfung kannst du deine Valorant-Statistiken im Twitch-Chat anzeigen lassen, zum Beispiel mit <code>!lastmatch</code>. Du entscheidest selbst, ob und welche Daten geteilt werden. Die Verknüpfung kannst du jederzeit trennen.</p>
+    <div class="row">
+      <button class="btn" data-go="2">Mit Riot anmelden</button>
+    </div>
+  </section>
+
+  <!-- 2: Riot-Anmeldung (Simulation) -->
+  <section class="screen hidden" data-screen="2">
+    <div class="badge">Schritt 2 von 5</div>
+    <h2>Anmeldung bei Riot</h2>
+    <p>Du wirst zur offiziellen Riot-Anmeldung weitergeleitet. twitchBot erhält dein Passwort nie.</p>
+    <div class="riot-sim">
+      <b>Riot-Anmeldung (Simulation)</b>
+      Im Produktivbetrieb öffnet sich hier die Seite auth.riotgames.com mit der Anfrage für die Scopes <em>openid</em> und <em>offline_access</em>.
+    </div>
+    <div class="row">
+      <button class="btn ghost" data-go="1">Zurück</button>
+      <button class="btn" data-go="3">Anmeldung simulieren</button>
+    </div>
+  </section>
+
+  <!-- 3: Zustimmung -->
+  <section class="screen hidden" data-screen="3">
+    <div class="badge">Schritt 3 von 5</div>
+    <h2>Welche Daten werden genutzt?</h2>
+    <p>twitchBot verwendet nur diese Informationen, und nur mit deiner Zustimmung:</p>
+
+    <div class="perm"><strong>Riot-ID (Name#TAG)</strong><span>Zur Anzeige im Chat und zum Zuordnen deiner Matches.</span></div>
+    <div class="perm"><strong>Match-Historie der letzten Spiele</strong><span>Für <code>!lastmatch</code> und <code>!stats</code>. Der Bot ruft die Daten alle 15 Minuten ab.</span></div>
+    <div class="perm"><strong>Nicht erfasst</strong><span>Chat-Verlauf, Standort, Geräte oder Daten anderer Spieler.</span></div>
+
+    <div class="disclaimer">
+      <strong>Hinweis:</strong> Mit dieser Verknüpfung werden deine Spielstatistiken für Zuschauer dieses Kanals öffentlich sichtbar, sobald jemand einen Befehl nutzt. Du kannst die Verknüpfung jederzeit trennen. Dabei werden deine gespeicherten Match-Daten gelöscht.
+    </div>
+
+    <label class="opt">
+      <input type="checkbox" id="consent">
+      <span>Ich stimme zu, dass twitchBot meine oben genannten Spielerdaten im Twitch-Chat dieses Kanals anzeigt.</span>
+    </label>
+
+    <div class="row">
+      <button class="btn ghost" data-go="2">Zurück</button>
+      <button class="btn" id="confirm" data-go="4" disabled>Zustimmen und verbinden</button>
+    </div>
+  </section>
+
+  <!-- 4: Verbunden / Verwaltung -->
+  <section class="screen hidden" data-screen="4">
+    <div class="badge">Schritt 4 von 5</div>
+    <div class="pill">Verbunden</div>
+    <h2>Deine Verknüpfung</h2>
+    <p>Die Zustimmung ist gespeichert. Du kannst sie hier jederzeit widerrufen.</p>
+    <div class="kv"><span>Riot-ID</span><span>DeinName#TAG</span></div>
+    <div class="kv"><span>Zustimmung erteilt</span><span>heute</span></div>
+    <div class="kv"><span>Letzte Aktualisierung</span><span>vor 12 Minuten</span></div>
+    <div class="kv"><span>Freigegebene Daten</span><span>Riot-ID, Match-Historie</span></div>
+    <div class="row" style="margin-top:20px">
+      <button class="btn" data-go="5">Chat-Vorschau ansehen</button>
+      <button class="btn danger" id="revoke">Verbindung trennen</button>
+    </div>
+  </section>
+
+  <!-- 5: Chat-Vorschau -->
+  <section class="screen hidden" data-screen="5">
+    <div class="badge">Schritt 5 von 5</div>
+    <h2>So sieht es im Chat aus</h2>
+    <p>Beispiele mit fiktiven Daten.</p>
+    <div class="chat">
+      <div><span class="mute">[Zuschauer]</span> !lastmatch</div>
+      <div><span class="bot">twitchBot</span>: DeinName: Ascent, Sieg, K/D/A 18/12/4, Agent Jett</div>
+      <div style="margin-top:10px"><span class="mute">[Zuschauer]</span> !lastmatch</div>
+      <div><span class="bot">twitchBot</span>: @Zuschauer: Dieser Spieler hat die Anzeige nicht freigegeben.</div>
+      <div style="margin-top:10px"><span class="mute">[Zuschauer]</span> !rank DeinName#TAG</div>
+      <div><span class="bot">twitchBot</span>: DeinName#TAG: Platz #142 im Leaderboard (1450 RR)</div>
+    </div>
+    <div class="note">
+      Regeln, die die Umsetzung einhält: Zustimmung per Riot Sign On, sichtbarer Hinweis vor der Verknüpfung, keine Abfragen von Gegnern oder Spielern ohne Zustimmung, keine Echtzeitdaten während laufender Matches, Leaderboard-Abfragen nur aus dem internen Index.
+    </div>
+    <div class="row" style="margin-top:16px">
+      <button class="btn ghost" data-go="4">Zurück</button>
+    </div>
+  </section>
+
+</main>
+
+<script>
+  const screens = document.querySelectorAll('[data-screen]');
+  const steps = document.querySelectorAll('.step');
+
+  function show(n) {
+    screens.forEach(s => s.classList.toggle('hidden', s.dataset.screen !== String(n)));
+    steps.forEach(s => s.classList.toggle('active', s.dataset.go === String(n)));
+  }
+
+  document.querySelectorAll('[data-go]').forEach(el =>
+    el.addEventListener('click', () => show(el.dataset.go))
+  );
+
+  const consent = document.getElementById('consent');
+  const confirmBtn = document.getElementById('confirm');
+  consent.addEventListener('change', () => { confirmBtn.disabled = !consent.checked; });
+
+  document.getElementById('revoke').addEventListener('click', () => {
+    consent.checked = false;
+    confirmBtn.disabled = true;
+    alert('Verbindung getrennt. Gespeicherte Match-Daten wurden gelöscht.');
+    show(1);
+  });
+</script>
+</body>
+</html>
